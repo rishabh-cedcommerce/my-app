@@ -1,10 +1,16 @@
 import React from 'react';
-import { DisplayText } from '@shopify/polaris';
+import { DisplayText, Button } from '@shopify/polaris';
 
 function Dashboard({name="Anonymous"}) {
+
+    function handleLogOut(){
+        localStorage.removeItem("User");
+    }
+
     return ( 
-        // <div className="container_dashboard"> Hello {name} This is your Dashboard  </div>
-        <DisplayText size="small"> Hello {name} This is your Dashboard  </DisplayText>
+        <DisplayText size="small"> Hello {name} This is your Dashboard 
+            <Button onClick={handleLogOut}>LogOut</Button>
+        </DisplayText>
      );
 }
 

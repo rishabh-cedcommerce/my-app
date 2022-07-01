@@ -4,9 +4,11 @@ import { Button, TextField, DisplayText } from '@shopify/polaris';
 
 import data from "../data/userDetails";
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 
 function Registration() {
+    let navigate = useNavigate();
 
 
     const [name, setName] = useState("");
@@ -22,10 +24,13 @@ function Registration() {
             const newData = { name: name, email: svalue, pass: spass };
             data.push(newData);
             console.log("Successful");
-            // history.push("/dashboard");
-            // console.log(name+"  "+svalue+"  "+spass);
+            navigate("../login");
+            setName("");
+            setSvalue("");
+            setSpass("");
         }
         else {
+            alert("Some field is missing");
             console.log("Unsuccessful");
         }
     }

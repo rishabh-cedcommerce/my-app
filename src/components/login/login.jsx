@@ -21,6 +21,8 @@ function LogIn() {
             for (let i = 0; i < data.length; i++) {
                 if (data[i].email == value && data[i].pass == pass) {
                     localStorage.setItem("User",JSON.stringify(data[i]));
+                    setValue("");
+                    setPass("");
                     console.log("Welcome", data[i].name);
                 }
             }
